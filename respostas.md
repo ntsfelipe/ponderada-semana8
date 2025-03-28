@@ -244,18 +244,19 @@ Implemente um pseudocódigo que receba o valor total da compra e exiba a classif
 
 
 **Resposta:
-
+```
 RECEBER ENTRADA "Digite o valor total da compra"
 LER valorTotal
 
-  SE valorTotal < 50,00 ENTAO
+    SE valorTotal < 50,00 ENTAO
         RETORNAR "Frete não disponível"
-  SENAO SE valorTotal <= 199,99 E valorTotal > 50,00 ENTAO
+    SENAO SE valorTotal <= 199,99 E valorTotal > 50,00 ENTAO
         RETORNAR "Frete com custo adicional"
-  SENAO
+    SENAO
         RETORNAR "Frete grátis!"
 
 FIM**
+```
 ______
 
 **8)** Considere a implementação da classe base Veiculo em um sistema de modelagem de veículos. Sua tarefa é implementar, utilizando pseudocódigo, as classes derivadas Carro e Moto, que herdam da classe Veiculo, adicionando atributos específicos e métodos para calcular o consumo de combustível de um carro e de uma moto, respectivamente.
@@ -275,20 +276,18 @@ Implementação genérica para cálculo de consumo, a ser sobrescrita pelas subc
 Agora, implemente as classes Carro e Moto, garantindo que ambas herdem de Veiculo e possuam métodos específicos para calcular o consumo de combustível com base na quilometragem e eficiência do veículo.
 
 **Resposta:
-
+```
  CLASSE Veículo:
     ATRIBUTOS:
         modelo
         ano
 
-   
- CONSTRUTOR(modelo, ano):
+    CONSTRUTOR(modelo, ano):
         esse.modelo <- modelo
         esse.ano <- ano
     FIM FUNCAO
 
-  
-  METODO CALCULARCONSUMO:
+    METODO CALCULARCONSUMO:
         // Metodo genérico para ser sobreposto pelo método das outras classes filhas
     FIM METODO
 
@@ -296,14 +295,12 @@ CLASSE Carro HERDA Veículo:
     ATRIBUTOS:
         eficiencia // km por litro
  
-  
-  CONSTRUTOR(modelo, ano, eficiencia):
+    CONSTRUTOR(modelo, ano, eficiencia):
         CHAMAR CONSTRUTOR de Veículo(modelo, ano)
         esse.eficiencia <- eficiencia 
     FIM FUNCAO
 
-  
-  METODO CALCULARCONSUMO:
+    METODO CALCULARCONSUMO:
         consumo <- distancia / eficiencia
         RETORNAR consumo
     FIM METODO
@@ -312,19 +309,18 @@ CLASSE Moto HERDA Veículo:
     ATRIBUTOS:
         eficiencia // km por litro
 
-  
-  CONSTRUTOR(modelo, ano, eficiencia):
+    CONSTRUTOR(modelo, ano, eficiencia):
         CHAMAR CONSTRUTOR DE Veículo(modelo, ano)
         esse.eficiencia <- eficiencia
     FIM FUNCAO
 
-  
-  METODO CALCULARCONSUMO:
+    METODO CALCULARCONSUMO:
         consumo <- distancia / eficiencia
         RETORNAR consumo 
     FIM METODO
 
 FIM**
+```
 
 ______
 
@@ -341,25 +337,24 @@ Considere a fórumla de atualização velocidade:
 Seu programa deve determinar quanto tempo será necessário para que a sonda atinja uma velocidade segura de pouso, sem ultrapassar os limites estabelecidos.
 
 **Resposta:
-
+```
 CALCULARTEMPOPOUSO(velocidadeInicial, desaceleracao, velocidadeSegura, tempoMaximo, desaceleracaoMinima):
     SE desaceleracao <= desaceleracaoMinima ENTAO
         RETORNAR "Erro: desaceleração abaixo do limite mínimo permitido"
     
-  
-  tempo <- 0
+    tempo <- 0
     velocidadeAtual <- velocidadeInicial
     
-
-  ENQUANTO velocidadeAtual > velocidadeSegura E tempo < tempoMaximo FAÇA:
+    ENQUANTO velocidadeAtual > velocidadeSegura E tempo < tempoMaximo FAÇA:
         velocidadeAtual <- velocidadeAtual - desaceleracao
         tempo <- tempo + 1
     
-   SE velocidadeAtual <= velocidadeSegura ENTAO
+    SE velocidadeAtual <= velocidadeSegura ENTAO
         RETORNAR tempo
     SENAO
         RETORNAR "Erro: Tempo máximo excedido, ajuste necessário"
-FIM**    
+FIM**
+```    
 ______
 
 **10)** Em um sistema de análise financeira, as operações de investimento de uma empresa podem ser representadas por matrizes, onde cada linha representa um tipo de investimento e cada coluna representa um período de tempo.
@@ -367,7 +362,6 @@ ______
 A seguir, é fornecida a implementação da função SomarMatrizesInvestimento(matrizA, matrizB), que soma os valores de duas matrizes de investimento. Sua tarefa é implementar uma função semelhante, porém que realize a multiplicação das matrizes de investimento, determinando como os investimentos afetam os resultados ao longo do tempo.
 
 ```
-
 Função SomarMatrizesInvestimento(matrizA, matrizB):  
     # Verifica se as matrizes têm o mesmo número de linhas e colunas  
     Se tamanho(matrizA) ≠ tamanho(matrizB) então:  
@@ -396,25 +390,23 @@ Agora, implemente a função MultiplicarMatrizesInvestimento(matrizA, matrizB), 
 
 
 **Resposta: 
-
+```
 MULTIPLICARMATRIZES(matrizA, matrizB):  
     SE TAMANHO(matrizA[0]) ≠ TAMANHO(matrizB) ENTAO:  
         RETORNAR "As matrizes não podem ser multiplicadas. Dimensões incompatíveis."  
     
-    
-linhasA <- TAMANHO(matrizA)  
+    linhasA <- TAMANHO(matrizA)  
     colunasA <- TAMANHO(matrizA[0])  
     colunasB <- TAMANHO(matrizB[0])  
     matrizResultado <- NOVAMATRIZ(linhasA, colunasB)  
     
-   
- PARA i DE 0 ATE linhasA-1 FAÇA:  
+    PARA i DE 0 ATE linhasA-1 FAÇA:  
         PARA j DE 0 ATE colunasB-1 FAÇA:  
             matrizResultado[i][j] <- 0  
               PARA k DE 0 ATE colunasA-1 FAÇA:  
                 matrizResultado[i][j] <- matrizResultado[i][j] + (matrizA[i][k] * matrizB[k][j])  
     
-   RETORNAR matrizResultado  
+    RETORNAR matrizResultado  
 
 //Exemplo de uso da função  
 investimentos <- [[1000, 2000], [1500, 2500]]  
@@ -425,3 +417,4 @@ ESCREVER("Resultado financeiro após impacto dos fatores:")
 IMPRIMIRMATRIZ(resultadoFinanceiro)
 
 FIM**
+```
