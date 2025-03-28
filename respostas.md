@@ -244,14 +244,15 @@ Implemente um pseudocódigo que receba o valor total da compra e exiba a classif
 
 
 **Resposta:
+
 RECEBER ENTRADA "Digite o valor total da compra"
 LER valorTotal
 
-    SE valorTotal < 50,00 ENTAO
+  SE valorTotal < 50,00 ENTAO
         RETORNAR "Frete não disponível"
-    SENAO SE valorTotal <= 199,99 E valorTotal > 50,00 ENTAO
+  SENAO SE valorTotal <= 199,99 E valorTotal > 50,00 ENTAO
         RETORNAR "Frete com custo adicional"
-    SENAO
+  SENAO
         RETORNAR "Frete grátis!"
 
 FIM**
@@ -280,12 +281,14 @@ Agora, implemente as classes Carro e Moto, garantindo que ambas herdem de Veicul
         modelo
         ano
 
-    CONSTRUTOR(modelo, ano):
+   
+ CONSTRUTOR(modelo, ano):
         esse.modelo <- modelo
         esse.ano <- ano
     FIM FUNCAO
 
-    METODO CALCULARCONSUMO:
+  
+  METODO CALCULARCONSUMO:
         // Metodo genérico para ser sobreposto pelo método das outras classes filhas
     FIM METODO
 
@@ -293,12 +296,14 @@ CLASSE Carro HERDA Veículo:
     ATRIBUTOS:
         eficiencia // km por litro
  
-    CONSTRUTOR(modelo, ano, eficiencia):
+  
+  CONSTRUTOR(modelo, ano, eficiencia):
         CHAMAR CONSTRUTOR de Veículo(modelo, ano)
         esse.eficiencia <- eficiencia 
     FIM FUNCAO
 
-    METODO CALCULARCONSUMO:
+  
+  METODO CALCULARCONSUMO:
         consumo <- distancia / eficiencia
         RETORNAR consumo
     FIM METODO
@@ -307,12 +312,14 @@ CLASSE Moto HERDA Veículo:
     ATRIBUTOS:
         eficiencia // km por litro
 
-    CONSTRUTOR(modelo, ano, eficiencia):
+  
+  CONSTRUTOR(modelo, ano, eficiencia):
         CHAMAR CONSTRUTOR DE Veículo(modelo, ano)
         esse.eficiencia <- eficiencia
     FIM FUNCAO
 
-    METODO CALCULARCONSUMO:
+  
+  METODO CALCULARCONSUMO:
         consumo <- distancia / eficiencia
         RETORNAR consumo 
     FIM METODO
@@ -339,14 +346,16 @@ CALCULARTEMPOPOUSO(velocidadeInicial, desaceleracao, velocidadeSegura, tempoMaxi
     SE desaceleracao <= desaceleracaoMinima ENTAO
         RETORNAR "Erro: desaceleração abaixo do limite mínimo permitido"
     
-    tempo <- 0
+  
+  tempo <- 0
     velocidadeAtual <- velocidadeInicial
     
-    ENQUANTO velocidadeAtual > velocidadeSegura E tempo < tempoMaximo FAÇA:
+
+  ENQUANTO velocidadeAtual > velocidadeSegura E tempo < tempoMaximo FAÇA:
         velocidadeAtual <- velocidadeAtual - desaceleracao
         tempo <- tempo + 1
     
-    SE velocidadeAtual <= velocidadeSegura ENTAO
+   SE velocidadeAtual <= velocidadeSegura ENTAO
         RETORNAR tempo
     SENAO
         RETORNAR "Erro: Tempo máximo excedido, ajuste necessário"
@@ -358,6 +367,7 @@ ______
 A seguir, é fornecida a implementação da função SomarMatrizesInvestimento(matrizA, matrizB), que soma os valores de duas matrizes de investimento. Sua tarefa é implementar uma função semelhante, porém que realize a multiplicação das matrizes de investimento, determinando como os investimentos afetam os resultados ao longo do tempo.
 
 ```
+
 Função SomarMatrizesInvestimento(matrizA, matrizB):  
     # Verifica se as matrizes têm o mesmo número de linhas e colunas  
     Se tamanho(matrizA) ≠ tamanho(matrizB) então:  
@@ -391,18 +401,20 @@ MULTIPLICARMATRIZES(matrizA, matrizB):
     SE TAMANHO(matrizA[0]) ≠ TAMANHO(matrizB) ENTAO:  
         RETORNAR "As matrizes não podem ser multiplicadas. Dimensões incompatíveis."  
     
-    linhasA <- TAMANHO(matrizA)  
+    
+linhasA <- TAMANHO(matrizA)  
     colunasA <- TAMANHO(matrizA[0])  
     colunasB <- TAMANHO(matrizB[0])  
     matrizResultado <- NOVAMATRIZ(linhasA, colunasB)  
     
-    PARA i DE 0 ATE linhasA-1 FAÇA:  
+   
+ PARA i DE 0 ATE linhasA-1 FAÇA:  
         PARA j DE 0 ATE colunasB-1 FAÇA:  
             matrizResultado[i][j] <- 0  
               PARA k DE 0 ATE colunasA-1 FAÇA:  
                 matrizResultado[i][j] <- matrizResultado[i][j] + (matrizA[i][k] * matrizB[k][j])  
     
-    RETORNAR matrizResultado  
+   RETORNAR matrizResultado  
 
 //Exemplo de uso da função  
 investimentos <- [[1000, 2000], [1500, 2500]]  
